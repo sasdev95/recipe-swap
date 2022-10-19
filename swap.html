@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block main %}
+    <!-- Show user's list of dishes, photo should be updated upon clicking "Submit" -->
+    <form action="/" method="post" enctype="multipart/form-data">
+        <main class="container py-5 text-center">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th class="text-start">Participant</th>
+                        <th class="text-center">Recipe Name</th>
+                        <th class="text-center">Pertinent Documents
+                            <br>Note: Webpage files must be in ".mhtml" format</br>
+                        </th>
+                        <th class="text-center">Webpage/Link</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Loop through each participant's information -->
+                    {% for row in info %}
+                        <tr>
+                            <td class="text-start">{{ row[0]["participant"] }}</td>
+                            <td class="text-center">
+                                <!-- Used SpikeZ's logic for recipe name and link columns to make
+                                    placeholder text disappear on click and reappear off click if no text entered:
+                                     "https://www.sitepoint.com/community/t/how-to-make-input-text-disappear/5713" -->
+                                <input autocomplete="off" class="form-control mx-auto w-auto" name="recipe{{ loop.index0 }}"
+                                type="text" placeholder="Required" onfocus="if (this.placeholder=='Required') {this.placeholder=''}"
+                                onblur="if (this.placeholder=='') {this.placeholder='Required'}" required>
+                            </td>
+                            <td class="text-center">
+                                <input class="form-control" type="file" name="file{{ loop.index0 }}" required>
+                            </td>
+                            <td class="text-center">
+                                <input autocomplete="off" class="form-control mx-auto w-auto" name="link{{ loop.index0 }}"
+                                placeholder="Optional" type="text"
+                                onfocus="if (this.placeholder=='Optional') {this.placeholder=''}"
+                                onblur="if (this.placeholder=='') {this.placeholder='Optional'}">
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </main>
+        <button class="btn btn-primary" id="btn-under-table" type="submit">Swap Recipes!</button>
+    </form>
+{% endblock %}
