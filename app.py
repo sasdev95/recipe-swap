@@ -38,14 +38,14 @@ from email import encoders
 import random
 
 # Declare path and restrictions for recipe file uploads
-UPLOAD_FOLDER = '/workspaces/108204575/final_project/static/documents'
+UPLOAD_FOLDER = '/recipe-swap/static/documents'
 ALLOWED_EXTENSIONS = {'txt', 'doc', 'docx', 'pdf', 'png', 'jpg', 'jpeg', 'jfif', 'gif', 'mhtml'}
 
 # Declare path for email text file
-EMAIL_FOLDER = '/workspaces/108204575/final_project/templates'
+EMAIL_FOLDER = '/recipe-swap/static/templates'
 
 # Declare path and restrictions for food photo uploads
-PHOTO_UPLOAD_FOLDER = '/workspaces/108204575/final_project/static/photos'
+PHOTO_UPLOAD_FOLDER = '/recipe-swap/static/photos'
 PHOTO_ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'jfif', 'gif'}
 
 # Configure application
