@@ -13,8 +13,8 @@ from werkzeug.security import check_password_hash, generate_password_hash
 from helpers import apology, login_required
 
 # Imports for date and time
-import datetime, numpy
-from dateutil.relativedelta import relativedelta
+#import datetime, numpy
+#from dateutil.relativedelta import relativedelta
 
 # Import for regular expressions
 import re
@@ -185,7 +185,7 @@ def swap():
         nextMonth = datetime.date.today().replace(day=1) + relativedelta(months=1)
 
         # Store first Friday of the next month (for HE PSED only, otherwise may disregard)
-        firstFriday = 'Friday, ' + str(numpy.busday_offset(nextMonth, 0, roll='forward', weekmask='Fri'))
+        #firstFriday = 'Friday, ' + str(numpy.busday_offset(nextMonth, 0, roll='forward', weekmask='Fri'))
 
         # Tailor e-mail message to each participant
         for i in range(len(participants)):
@@ -238,17 +238,18 @@ def swap():
             receiver = 'recipeswap50@gmail.com'
 
             # Set up message body for HECO account
-            if username == 'heco' and request.files['file' + str(i)]:
-                msg_body = f"""Hi {participants[i]},
+            #if username == 'heco' and request.files['file' + str(i)]:
+                #msg_body = f"""Hi {participants[i]},
 
-Your assigned recipe is attached ({recipes[i]}). Please cook it by {firstFriday}.
-Feel free to add your own personal touch!
+#Your assigned recipe is attached ({recipes[i]}). Please cook it by {firstFriday}.
+#Feel free to add your own personal touch!
 
-Thanks,
-{coordinator}"""
+#Thanks,
+#{coordinator}"""
 
             # Set up message body for generic account
-            else:
+            #else:
+            if request.files['file' + str(i)]:
                 msg_body = f"""Hi {participants[i]},
 
 Your assigned recipe is attached ({recipes[i]}).
