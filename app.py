@@ -38,14 +38,14 @@ from email import encoders
 import random
 
 # Declare path and restrictions for recipe file uploads
-UPLOAD_FOLDER = '/sasdev95/recipe-swap/tree/main/static/documents'
+UPLOAD_FOLDER = '/static/documents'
 ALLOWED_EXTENSIONS = {'txt', 'doc', 'docx', 'pdf', 'png', 'jpg', 'jpeg', 'jfif', 'gif', 'mhtml'}
 
 # Declare path for email text file
-EMAIL_FOLDER = '/sasdev95/recipe-swap/tree/main/templates'
+EMAIL_FOLDER = '/templates'
 
 # Declare path and restrictions for food photo uploads
-PHOTO_UPLOAD_FOLDER = '/sasdev95/recipe-swap/tree/main/static/photos'
+PHOTO_UPLOAD_FOLDER = '/static/photos'
 PHOTO_ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'jfif', 'gif'}
 
 # Configure application
@@ -173,7 +173,7 @@ def swap():
             submitted_files[i] = re.sub(r"[\(\)]", '', submitted_files[i])
 
         # Get list of all files stored in the documents folder, in no particular order
-        documents = os.listdir('/workspaces/108204575/final_project/static/documents')
+        documents = os.listdir('/static/documents')
 
         # Initialize list for recipes to be assigned to participants
         recipes = []
@@ -220,7 +220,7 @@ def swap():
             # Used sequence for attaching file from "https://www.geeksforgeeks.org/send-mail-attachment-gmail-account-using-python/"
 
             # Read recipe file to be sent
-            file = open(f'/workspaces/108204575/final_project/static/documents/{filename}', "rb")
+            file = open(f'/static/documents/{filename}', "rb")
 
             # Instance of MIMEBase, named as 'attachment'
             attachment = MIMEBase('application', 'octet-stream')
