@@ -37,15 +37,18 @@ from email import encoders
 # Import library to randomize recipe assignments
 import random
 
+# Get root for uplaod folder 
+APP_ROOT = os.path.dirname(os.path.abspath(__file__))
+
 # Declare path and restrictions for recipe file uploads
-UPLOAD_FOLDER = 's3://recipe-swap/documents/'
+UPLOAD_FOLDER = os.path.join(APP_ROOT, 'static/documents')
 ALLOWED_EXTENSIONS = {'txt', 'doc', 'docx', 'pdf', 'png', 'jpg', 'jpeg', 'jfif', 'gif', 'mhtml'}
 
 # Declare path for email text file
-EMAIL_FOLDER = '/templates'
+# EMAIL_FOLDER = '/templates'
 
 # Declare path and restrictions for food photo uploads
-PHOTO_UPLOAD_FOLDER = 's3://recipe-swap/photos/'
+PHOTO_UPLOAD_FOLDER = os.path.join(APP_ROOT, 'static/photos')
 PHOTO_ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'jfif', 'gif'}
 
 # Configure application
@@ -173,7 +176,7 @@ def swap():
             submitted_files[i] = re.sub(r"[\(\)]", '', submitted_files[i])
 
         # Get list of all files stored in the documents folder, in no particular order
-        documents = os.listdir('s3://recipe-swap/documents/')
+        documents = os.listdir(UPLOAD_FOLDER)
 
         # Initialize list for recipes to be assigned to participants
         recipes = []
@@ -220,7 +223,7 @@ def swap():
             # Used sequence for attaching file from "https://www.geeksforgeeks.org/send-mail-attachment-gmail-account-using-python/"
 
             # Read recipe file to be sent
-            file = open(f's3://recipe-swap/documents/{filename}', "rb")
+            file = open(f'{UPLOAD_FOLDER}/{filename}', "rb")
 
             # Instance of MIMEBase, named as 'attachment'
             attachment = MIMEBase('application', 'octet-stream')
