@@ -58,7 +58,7 @@ app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 # Configure folder for email text file
-app.config['EMAIL_FOLDER'] = EMAIL_FOLDER
+#app.config['EMAIL_FOLDER'] = EMAIL_FOLDER
 
 # Configure folder for food photo uploads
 app.config['PHOTO_UPLOAD_FOLDER'] = PHOTO_UPLOAD_FOLDER
