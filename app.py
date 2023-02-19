@@ -185,7 +185,7 @@ def swap():
         links = []
 
         # Get first day of next month (for HE PSED only, otherwise may disregard)
-        nextMonth = datetime.date.today().replace(day=1) + relativedelta(months=1)
+        #nextMonth = datetime.date.today().replace(day=1) + relativedelta(months=1)
 
         # Store first Friday of the next month (for HE PSED only, otherwise may disregard)
         #firstFriday = 'Friday, ' + str(numpy.busday_offset(nextMonth, 0, roll='forward', weekmask='Fri'))
