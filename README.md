@@ -6,8 +6,6 @@ Recipe Swap is a web application that allows you to swap recipes with your frien
 ## Description of the Project
 Technologies used to create this project include Python, HTML, CSS, Flask, Jinja, SQLite3, and JavaScript. There were various files used to construct this project, which will all be detailed below in approximately chronological order.
 
-### Video Demo: <https://www.youtube.com/watch?v=7HIpVClUIEs>
-
 &nbsp;
 
 ### **layout.html**
